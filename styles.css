@@ -1,0 +1,69 @@
+.ca-widget-button{
+  padding: 0 0 ;
+  margin: 0 auto;
+}
+
+.container-main{
+  padding:0;
+  background-color: rgba(50, 16, 236, 0.15);
+}
+
+.widget{
+  width: 100%;
+  text-align: center;
+}
+
+.widget > .type-switch{
+  background-color: rgba(92, 101, 154, 0.92);
+  margin: 0 auto;
+  height: 30px;
+}
+
+.widget > .type-switch > button{
+  width: 100px;
+  height: 100%;
+  margin-right: -4px;
+  border-radius: 0px;
+}
+
+.widget > .type-switch > button.current{
+  background-color: red;
+}
+
+.widget > .type-switch > .html-widget{
+
+}
+
+.widget > .widget-example{
+  min-height: 100px;
+  text-align: center;
+  padding: 20px 0;
+  background-color: rgba(92, 101, 154, 0.92);
+}
+
+.widget-code{
+  background-color: rgba(63, 58, 187, 0.25);
+  text-align: center;
+}
+
+.widget-code > textarea {
+  display: inline-block;
+  min-width: 500px;
+}
+
+.widget-options{
+  padding-left: 10px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.widget-options > .option{
+  width: 50%;
+  margin: 0 auto;
+}
+
+.widget-options > .option > span{
+  display: inline-block;
+  width: 50%;
+}
+
