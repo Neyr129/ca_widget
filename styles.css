@@ -1,11 +1,17 @@
-.ca-widget-button{
-  padding: 0 0 ;
-  margin: 0 auto;
+html, body{
+  height:100%;
 }
 
 .container-main{
+  width: 50%;
+  height: 100%;
   padding:0;
-  background-color: rgba(50, 16, 236, 0.15);
+  /*background-color: rgba(50, 16, 236, 0.15);*/
+}
+
+.ca-widget-button{
+  padding: 0 0 ;
+  margin: 0 auto;
 }
 
 .widget{
@@ -14,9 +20,15 @@
 }
 
 .widget > .type-switch{
-  background-color: rgba(92, 101, 154, 0.92);
+  background-color: #e4e4e4;
   margin: 0 auto;
-  height: 30px;
+  height: 40px;
+}
+
+.widget > .type-switch > .ca-logo{
+  position: absolute;
+  top: 5px;
+  left:20px;
 }
 
 .widget > .type-switch > button{
@@ -26,8 +38,13 @@
   border-radius: 0px;
 }
 
+
+.widget > .type-switch > button:focus{
+  outline: none;
+}
+
 .widget > .type-switch > button.current{
-  background-color: red;
+  background-color: #CBCBCB;
 }
 
 .widget > .type-switch > .html-widget{
@@ -35,35 +52,56 @@
 }
 
 .widget > .widget-example{
-  min-height: 100px;
+  position: relative;
+  height: 200px;
   text-align: center;
-  padding: 20px 0;
   background-color: rgba(92, 101, 154, 0.92);
 }
 
+.widget-example > .widget-example-block{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
 .widget-code{
-  background-color: rgba(63, 58, 187, 0.25);
-  text-align: center;
+  margin: 50px 30px;
+  padding-bottom: 10px;
+  /*background-color: #B1BBED;*/
+  text-align: center;r;
+}
+
+.widget-code > div:first-child{
+  font-size: 16px;
 }
 
 .widget-code > textarea {
   display: inline-block;
-  min-width: 500px;
+  text-align: center;
+  min-width: 700px;
+  border-radius: 4px;
 }
 
 .widget-options{
-  padding-left: 10px;
-  width: 50%;
+  padding-top: 50px;
+  line-height: 30px;
+  width: 700px;
   margin: 0 auto;
 }
 
 .widget-options > .option{
-  width: 50%;
+  width: 100%;
+  font-size: 16px;
+  display: inline-block;
   margin: 0 auto;
 }
 
-.widget-options > .option > span{
-  display: inline-block;
-  width: 50%;
+
+.widget-options > .option > label{
+  font-weight: normal;
 }
 
+.widget-options > .option > select{
+  width: 50px;
+}
