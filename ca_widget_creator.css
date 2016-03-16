@@ -16,7 +16,6 @@ html, body{
 
 .widget{
   width: 100%;
-  text-align: center;
 }
 
 .widget > .type-switch{
@@ -100,6 +99,10 @@ html, body{
 
 .widget-options > .option > label{
   font-weight: normal;
+}
+
+.widget-options > .option   input{
+  width: 20px;
 }
 
 .widget-options > .option > select{

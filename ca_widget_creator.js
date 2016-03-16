@@ -11,10 +11,11 @@
     this.setEventsAndConst = function(){
       self = this;
 
-      this.code_field       =  $('.widget-code>textarea');
-      this.widget_example   =  $('.widget_example');
+      this.code_field       =  $('#field_code');
+      this.widget_example   =  $('.widget-example');
       this.activeTypeButton =  $('.type-switch>button.current');
-      $('.widget-options>.option>label>input, select.already-changed-quantity').on(
+
+      $('.widget-options input, select#field_quantity').on(
         "change", function(){
           self.updateWidget();
         }
@@ -36,48 +37,49 @@
     this.updateWidget = function(){
       this.updateWidgetExample();
       this.updateCode();
+      this.widget_example.height( $('.options').height() - 60);
     }
 
     this.updateCode = function(){
       var code = null;
       var chosen_type = this.activeTypeButton.data("type");
       if(chosen_type == "HTML"){
-        this.updateWidgetExample();
         code = this.getCurrentWidgetUrlFor("html");
-        console.log("code for HTML updated")
       }else if (chosen_type == "JS") {
         url  =  this.getCurrentWidgetUrlFor("js");
-        code = "<script type='text/javascript' src='" + url + "</script>";
-        console.log("code for js updated");
+        // FIXME
+        code = "<script type='text/javascript' src='" + url + "'> </script>";
       };
-      this.code_field.text(code);
+      this.code_field.val(code);
     };
 
     this.updateWidgetExample = function(){
-      jQuery.ajax({
-        url:  this.getCurrentWidgetUrlFor("html"),
-        type: "GET",
-        success: function(data) { this.widget_example.html(data) }
-      });
+      url = this.getCurrentWidgetUrlFor("html"),
+      this.widget_example.prop('src', url);
     };
 
     this.getCurrentWidgetUrlFor = function(type){
-      url = this.script_path+"."+type+"?" +
-        "&fullsize=" + $(".option-fullsize").is(":checked");
+      url = this.script_path+"."+type+"?";
+      if( $("input[value='Fullsize']").is(":checked") )
+      {
+        url += "&fullsize=" + "true";
+      };
 
-        if( $(".option-already-changed").is(":checked") )
-        {
-          url += "&already-changed=" + $(".option-already-changed").is(":checked") +
-                 "&quantity="        + $(".already-changed-quantity").val();
-        };
+      if( $("input[value^='Add']").is(":checked") )
+      {
+        url += "&already_changed=" + "true" +
+               "&quantity="        + $("#field_quantity").val();
+      };
       return url;
     };
 
     this.init = function(){
       self = this;
       $(document).ready(function(){
+        $('input[type="submit"]').remove()
         self.setEventsAndConst();
         self.updateWidget();
+        setTimeout(function(){self.widget_example.fadeIn()}, 1000);
       });
     };
 
